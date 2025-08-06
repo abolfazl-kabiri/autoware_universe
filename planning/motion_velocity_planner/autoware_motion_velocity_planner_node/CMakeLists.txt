@@ -4,6 +4,9 @@ project(autoware_motion_velocity_planner_node)
 find_package(autoware_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
+include_directories("/opt/ros/humble/include/grid_map_core")
+
+
 rosidl_generate_interfaces(
   ${PROJECT_NAME}
   "srv/LoadPlugin.srv"

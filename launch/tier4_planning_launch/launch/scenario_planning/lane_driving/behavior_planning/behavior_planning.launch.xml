@@ -208,8 +208,8 @@
       <extra_arg name="use_intra_process_comms" value="false"/>
     </composable_node>
 
-    <composable_node pkg="autoware_behavior_velocity_planner" plugin="autoware::behavior_velocity_planner::BehaviorVelocityPlannerNode" name="behavior_velocity_planner" namespace="">
-      <!-- topic remap -->
+    <!-- <composable_node pkg="autoware_behavior_velocity_planner" plugin="autoware::behavior_velocity_planner::BehaviorVelocityPlannerNode" name="behavior_velocity_planner" namespace="">
+
       <remap from="~/input/path_with_lane_id" to="path_with_lane_id"/>
       <remap from="~/input/vector_map" to="$(var input_vector_map_topic_name)"/>
       <remap from="~/input/vehicle_odometry" to="/localization/kinematic_state"/>
@@ -226,7 +226,7 @@
       <remap from="~/output/stop_reasons" to="/planning/scenario_planning/status/stop_reasons"/>
       <remap from="~/output/infrastructure_commands" to="/planning/scenario_planning/status/infrastructure_commands"/>
       <remap from="~/output/traffic_signal" to="debug/traffic_signal"/>
-      <!-- params -->
+
       <param from="$(var common_param_path)"/>
       <param from="$(var vehicle_param_file)"/>
       <param from="$(var nearest_search_param_path)"/>
@@ -236,7 +236,7 @@
       <param name="launch_modules" value="$(var behavior_velocity_planner_launch_modules)"/>
       <param name="enable_all_modules_auto_mode" value="$(var enable_all_modules_auto_mode)"/>
       <param name="is_simulation" value="$(var is_simulation)"/>
-      <!-- <param from="$(var template_param_path)"/> -->
+
       <param from="$(var behavior_velocity_planner_blind_spot_module_param_path)"/>
       <param from="$(var behavior_velocity_planner_crosswalk_module_param_path)"/>
       <param from="$(var behavior_velocity_planner_walkway_module_param_path)"/>
@@ -250,12 +250,15 @@
       <param from="$(var behavior_velocity_planner_run_out_module_param_path)"/>
       <param from="$(var behavior_velocity_planner_speed_bump_module_param_path)"/>
       <param from="$(var behavior_velocity_planner_no_drivable_lane_module_param_path)"/>
-      <!-- composable node config -->
+
       <extra_arg name="use_intra_process_comms" value="false"/>
-    </composable_node>
+    </composable_node> -->
+    
 
     <composable_node pkg="glog_component" plugin="GlogComponent" name="glog_component" namespace=""/>
   </node_container>
+  
+  <node pkg="my_custom_planner" exec="my_custom_planner_node" name="my_custom_planner_node" output="screen"/>
 
   <group if="$(var launch_compare_map_pipeline)">
     <!-- use pointcloud container -->
