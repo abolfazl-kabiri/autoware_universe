@@ -20,10 +20,11 @@ class MyLogger:
         self.logger.info(f'LLM interaction log started at: {self.log_filepath}')
 
     def log_request(self, prompt: str):
-        self.logger.info(f'LLM Request: {prompt}')
+        self.logger.info(f'LLM Request: {prompt}\n')
 
     def log_response(self, response: str):
-        self.logger.info(f'LLM Response: {response}')
+        self.logger.info(f'LLM Response: {response}\n')
+        self.logger.info('============================================\n')
 
     def log_error(self, error_message: str):
         self.logger.error(f'LLM Error: {error_message}')
